@@ -2,7 +2,7 @@
 #install.packages("caTools")
 library(caTools)
 
-#use this to upload dataset file.choose() will bring up a pop-up window to choose file
+#use this to upload dataset file.choose() will bring up a pop-up window to choose file. choose the german credit data file.
 germancredit <- read.csv(file.choose())
 
 #changing categorical variables to factors for use in the model 
