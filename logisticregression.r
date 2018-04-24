@@ -1,4 +1,4 @@
-#uncomment to download this package we used if you don't have it already
+#uncomment to download this package that I used if you don't have it already
 #install.packages("caTools")
 library(caTools)
 
