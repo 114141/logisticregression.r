@@ -15,7 +15,7 @@ for (i in factors) {
   creditfactors[, i] = factor(creditfactors[, i])
 }
 
-#full model with full data
+#full model with full data - baseline
 fullmod <- glm(Creditability ~., family='binomial'(link='logit'), data=creditfactors)
 
 #null model
@@ -48,11 +48,8 @@ mod <- glm(Creditability ~., family='binomial'(link='logit'), data=train)
 #using stepwise function to evaluate attributes for feature selection
 stepattrib <- step(mod, Creditability~., family='binomial', data=creditfactors)
 
-#also using boruta attribute selection for feature selection
-boruta.creditfactors <- Boruta(Creditability~., data=creditfactors, doTrace=2)
-print(boruta.creditfactors)
 
-#took the attributes from  the stepwise regression which does both forwards and backwards. lowest AIC.
+#took the attributes from  the stepwise regression
 
 stepmodel <- glm(Creditability ~ Account.Balance + Duration.of.Credit..month. + 
                    Payment.Status.of.Previous.Credit + Purpose + Value.Savings.Stocks + 
